@@ -145,7 +145,7 @@ async def set_wallet(command: ChatCommand, target: str):
 	data.set(target, (wallet, bank))
 	await command.reply(f"{target.capitalize()}'s wallet has been set to: {wallet} {currency}.")
 
-@ensure_user_exists(True, False, False)
+@ensure_user_exists(True, False, True)
 async def set_bank(command: ChatCommand, target: str = None):
 	if len(command.parameter) == 0:
 		await command.reply("You have to provide a user and an amount to set their bank to.")
@@ -358,6 +358,7 @@ async def run():
 		
 if __name__ == "__main__":
 	asyncio.run(run())
+
 
 
 
